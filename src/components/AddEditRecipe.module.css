@@ -1,0 +1,123 @@
+
+.form{
+    display:flex;
+    flex-direction: column;
+    width:90vw;
+    margin: 0;
+}
+
+.group{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width:calc(100% -40x);
+    padding:0 20px 0 20px;
+}
+
+.label{
+    display: flex;
+    box-sizing: border-box;
+    text-align: left;
+    width: 150px;
+}
+
+.input{
+    width:100%;
+    min-height:30px;
+    max-height:30px;
+    background-color:#C0C0C0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    line-height: 25px;
+    border: 0
+}
+.main{
+    display: flex;
+    margin: 0 20px 10px 0;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+
+}
+
+.button:hover{
+    background-color:grey
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:80px;
+    height:30px;
+    border-radius: 15px;
+    margin: 0;
+    border: white solid 1px;
+    background-color: black;
+    color: white;
+}
+  
+  
+.addButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50px;
+    border-radius: 15px;
+    font-size: 12px;
+    border: white solid 1px;
+    background-color: rgb(57, 148, 81);
+    color: white;
+}
+.addButton:hover{
+    background-color:rgb(91, 228, 127);
+}
+.delButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50px;
+    border-radius: 15px;
+    font-size: 12px;
+    border: white solid 1px;
+    background-color: rgb(148, 57, 57);
+    color: white;
+}
+.delButton:hover{
+    background-color:rgb(228, 91, 91);
+}
+
+.titleGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    padding:20px 0px 20px 0;
+
+}
+.titleGroup h2{
+    text-align: left;
+    padding:0px 20px 0 20px;
+}
+
+.mainTitle{
+    text-align: left;
+    width: 90vw;
+    padding:0px 20px 0 20px;
+}
+
+.error{
+    font-size: 15px;
+    color: red;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    width:calc(100% -40x);
+    padding:0 0 20px 150px;
+}
+
+.location{
+    color: grey !important;
+    background-color: white !important;
+}

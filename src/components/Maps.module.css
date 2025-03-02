@@ -1,0 +1,82 @@
+.container {
+    display:flex;
+    flex-direction: column;
+    width:90vw;
+    height: 85vh; /* Add height */
+    margin: 0;
+}
+.map{
+    width:100% !important;
+    height:100% !important;
+    border-radius: 20px;
+    margin: 0 0 20px 0; 
+    padding: 0;
+}
+
+.circleIcon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Make it circular */
+    background-size: cover; /* Ensure the image covers the circle */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    border: 2px solid #000000;
+}
+
+.img{
+    width: 150px;
+    height:200px;
+    padding-right: 10px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.markerDetails{
+    display: flex;
+    flex-direction: row;}
+
+.title{
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.imgContainer{
+    width: 200px;
+    height:200px
+}
+
+.textContainer{
+    max-width: 300px;
+    max-height:200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.textInnerContainer{
+    max-height:150px;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+.text{
+    width: 100%;
+}
+
+.button:hover {
+    background-color: rgb(75, 75, 75);
+  }
+  
+  .button{
+    min-width: 80px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 12px;
+  }
+
+  .loadingCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

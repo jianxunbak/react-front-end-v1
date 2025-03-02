@@ -1,0 +1,145 @@
+.cardContainerImage {
+  width:100%;
+  height:30vh;
+  min-height:100px;
+  max-height:300px;
+  object-fit: cover;
+}
+
+.card{
+min-width: 400px;
+}
+.username{
+  text-align: center;
+  font-size: clamp(50px, 5vw, 80px);
+  width: 100%;
+  padding:0px 0px 30px 0px;
+  margin:0
+}
+
+.title{
+  width: 100%;
+  min-height: 30px;
+  max-height: 50px;
+  font-size: larger;
+  font-weight: 500;
+}
+
+.description{
+  width: 100%;
+  min-height: 50px;
+  font-size:medium;
+  font-weight: 200;
+}
+.cuisine{
+  width: 100%;
+  min-height: 20px;
+  font-size:small;
+  font-weight: 100;
+}
+
+.buttonGroup{
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  justify-content: center;
+
+}
+
+.button:hover {
+  background-color: rgb(75, 75, 75);
+}
+
+.button{
+  min-width: 80px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.searchButton{
+  min-width: 80px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 12px;
+  margin:0 0 50px 0;
+}
+
+.unFav{
+  min-width: 80px;
+  background-color: rgb(231, 114, 114);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.fav{
+  min-width: 80px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.fav:hover {
+  background-color: rgb(231, 114, 114);
+}
+.searchGroup{
+  width:100%;
+  display: flex ;
+  justify-content: center;
+  gap:5px;
+  padding:0 0 50px 0
+}
+
+.searchBar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width:150px;
+  background-color: rgb(219, 219, 219);
+  border: 0;
+  border-radius: 15px;
+  position:relative;
+  color:rgb(88, 88, 88);
+  font-size: small;
+
+  
+}
+/* 
+.searchButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:80px;
+  height:30px;
+  border-radius: 0 15px 15px 0;
+  margin: 0;
+  border: 0;
+  background-color: rgb(219, 219, 219);
+  color: rgb(0, 0, 0);
+  font-size: small;
+
+}
+
+.searchMidButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:80px;
+  height:30px;
+  margin: 0;
+  border: 0;
+  background-color: rgb(219, 219, 219);
+  color: rgb(0, 0, 0);
+  font-size: small;
+} */
