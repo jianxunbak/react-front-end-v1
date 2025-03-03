@@ -39,7 +39,7 @@ const EditRecipe = () => {
             Cancel
           </button>
         </div>
-        <div className={styles.group}>
+        {/* <div className={styles.group}>
           <label className={`form-label ${styles.label}`}> Location: </label>
           <input
             className="form-control"
@@ -48,7 +48,7 @@ const EditRecipe = () => {
             // onChange={(e) => handleInput(e, validateRealTimeField)}
             value={newRecipe.city || ""}
           />
-        </div>
+        </div> */}
         <div className={styles.group}>
           <label className={`form-label ${styles.label}`}> Title: </label>
           <input
