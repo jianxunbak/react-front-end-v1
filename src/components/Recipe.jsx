@@ -36,7 +36,21 @@ const Recipe = () => {
       ) : (
         <div className={styles.container}>
           <img src={selectedItem.imgSrc} alt={selectedItem.imgAlt}></img>
-          <p>Contributor: {selectedItem.user.username}</p>
+          <p className={styles.contributor}>
+            Contributor:
+            <>
+              <button
+                className={styles.button}
+                onClick={() =>
+                  handleNavigateToUserProfile(selectedItem.user.id)
+                }
+              >
+                {userProfile.userId != selectedItem.user.id
+                  ? selectedItem.user.username
+                  : "you"}
+              </button>
+            </>
+          </p>
 
           <h1>{selectedItem.title.toUpperCase()}</h1>
           <p className={styles.description}>{selectedItem.description}</p>
@@ -111,18 +125,20 @@ const Recipe = () => {
                 </button>
               </>
             ) : null}
-            {userProfile.userId != selectedItem.user.id ? (
-              <>
-                <button
-                  className={styles.button}
-                  onClick={() =>
-                    handleNavigateToUserProfile(selectedItem.user.id)
-                  }
-                >
-                  User Profile
-                </button>
-              </>
-            ) : null}
+
+            <button
+              className={styles.button}
+              onClick={() =>
+                navigate("/map", {
+                  state: {
+                    lat: selectedItem.latitude,
+                    lng: selectedItem.longitude,
+                  },
+                })
+              }
+            >
+              Map
+            </button>
           </div>
         </div>
       )}

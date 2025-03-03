@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MapsContext } from "../context/MapsContext";
 import { IsEditingAndLoadingContext } from "../context/IsLoadingandEditingContext";
 import { PacmanLoader } from "react-spinners";
@@ -7,19 +7,36 @@ import "leaflet/dist/leaflet.css"; // Make sure Leaflet CSS is imported
 import styles from "./Maps.module.css";
 import { AddOrEditRecipeContext } from "../context/AddOrEditRecipeContext";
 import L from "leaflet"; // Import leaflet for custom icons
-import { useNavigate } from "react-router-dom";
-// import "react-leaflet-markercluster/dist/styles.min.css"; // For clustering styles
+import { useLocation, useNavigate } from "react-router-dom";
 import MarkerClusterGroup from "react-leaflet-markercluster";
+import { useMap } from "react-leaflet";
+
+const MapEventHandler = ({ lat, lng, MapLoaded }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (lat && lng && MapLoaded) {
+      map.flyTo([lat, lng, 15]);
+    }
+  }, [lat, lng, map, MapLoaded]);
+  return null;
+};
 
 const Maps = () => {
   const { location } = useContext(MapsContext);
   const { isLoading } = useContext(IsEditingAndLoadingContext);
   const { items = [] } = useContext(AddOrEditRecipeContext);
   const navigate = useNavigate();
+  const [MapLoaded, setMapLoaded] = useState(false);
+  const routerLocation = useLocation();
+  const lat = routerLocation.state?.lat;
+  const lng = routerLocation.state?.lng;
 
   useEffect(() => {
-    console.log("isLoading updated:", isLoading); // Check if re-render happens
-  }, [isLoading]);
+    if (lat && lng) {
+      setMapLoaded(true);
+    }
+  }, [lat, lng]);
 
   console.log("items inside maps", items);
   // Create a custom icon (adjust the size and image source as needed)
@@ -50,10 +67,18 @@ const Maps = () => {
           <MapContainer
             center={[location.latitude, location.longitude]}
             zoom={15}
+            maxZoom={17} // Prevent zooming in past this level
+            minZoom={2} // Prevent zooming out past this level
             className={styles.map}
             attributionControl={false}
+            maxBounds={[
+              [-85, -180], // Southwest corner (bottom-left)
+              [85, 180], // Northeast corner (top-right)
+            ]}
+            maxBoundsViscosity={1.0} // Fully restricts map within bounds
           >
-            <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"></TileLayer>
+            <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
+            <MapEventHandler lat={lat} lng={lng} MapLoaded={MapLoaded} />
             <Marker position={[location.latitude, location.longitude]}>
               <Popup>
                 You are at {location.road}, {location.city}
@@ -61,9 +86,9 @@ const Maps = () => {
             </Marker>
             <MarkerClusterGroup
               iconCreateFunction={createClusterCustomIcon}
-              maxClusterRadius={10}
+              maxClusterRadius={80}
               spiderfyDistanceMultiplier={2} // Spread markers more when clicked
-              disableClusteringAtZoom={2} // Stops clustering when zoomed in past level 14
+              disableClusteringAtZoom={8} // Stops clustering when zoomed in past level 14
             >
               {items.map((recipe) => {
                 return (

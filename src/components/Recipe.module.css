@@ -141,4 +141,11 @@
   .fav:hover {
     background-color: rgb(231, 114, 114);
   }
+
+  .contributor{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin:10px 0 0 0 ;
+  }
   

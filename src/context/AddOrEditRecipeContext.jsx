@@ -34,7 +34,6 @@ export function AddorEditRecipeProvider({
   // const [currentId, setCurrentId] = useState([]);
 
   // const [selectedUserDetails, setSelectedUserDetails] = useState([]);
-
   const { id: userIdParams } = useParams();
   console.log("Rendering Recipe with ID:", userIdParams); // This should always log when the component renders
 
@@ -273,7 +272,6 @@ export function AddorEditRecipeProvider({
     console.log("userRecipesAndId", userRecipesAndId);
     navigate(`/userRecipes/${userRecipesAndId.id}`);
   };
-
   const contextValue = {
     newRecipe,
     setNewRecipe,

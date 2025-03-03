@@ -30,12 +30,10 @@ export const Card = () => {
     handlerDelete,
   } = useContext(AddOrEditRecipeContext);
   const { isLoading } = useContext(IsEditingAndLoadingContext);
-  console.log("items inside card", items);
-  console.log("after unfav: ", favouriteList);
-  console.log("after add: ", favouriteList);
-
-  // const recipesToShow = !searching ? items : searchRecipe;
-  // console.log("recipe to show ", recipesToShow);
+  // console.log("items inside card", items);
+  // console.log("after unfav: ", favouriteList);
+  // console.log("after add: ", favouriteList);
+  // console.log("profile userid: ", userProfile.userId);
 
   useEffect(() => {
     if (items) {
@@ -129,7 +127,7 @@ export const Card = () => {
                               : "Fav"}
                           </button>
 
-                          {userProfile.userId == item.id ? (
+                          {userProfile.userId == item.user.id ? (
                             <>
                               <button
                                 className={styles.button}
