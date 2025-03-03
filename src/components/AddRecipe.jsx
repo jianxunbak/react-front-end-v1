@@ -74,7 +74,7 @@ const AddRecipe = () => {
         <div className={styles.group}>
           <label className={`form-label ${styles.label}`}> Title: </label>
           <input
-            className="form-control"
+            className={`form-control ${styles.textArea}`}
             name="title"
             type="text"
             onChange={(e) => handleInput(e, validateRealTimeField)}
@@ -86,8 +86,8 @@ const AddRecipe = () => {
         )}
         <div className={styles.group}>
           <label className={`form-label ${styles.label}`}> Description: </label>
-          <textarea
-            className="form-control"
+          <input
+            className={`form-control ${styles.textArea}`}
             name="description"
             type="text"
             onChange={(e) => handleInput(e, validateRealTimeField)}
@@ -99,8 +99,8 @@ const AddRecipe = () => {
         )}
         <div className={styles.group}>
           <label className={`form-label ${styles.label}`}> Image URL: </label>
-          <textarea
-            className="form-control"
+          <input
+            className={`form-control ${styles.textArea}`}
             name="imgSrc"
             type="text"
             onChange={(e) => handleInput(e, validateRealTimeField)}
@@ -111,7 +111,7 @@ const AddRecipe = () => {
           <div className={styles.error}>{formErrors.imgSrc}</div>
         )}
         <div className={styles.titleGroup}>
-          <h2>Ingredients</h2>{" "}
+          <h2>Ingredients</h2>
           <button
             className={styles.addButton}
             type="button"
@@ -128,21 +128,21 @@ const AddRecipe = () => {
                 <label className={`form-label ${styles.label}`}>
                   Ingredient {index + 1} :
                 </label>
-                <button
-                  className={styles.delButton}
-                  type="button"
-                  onClick={() => handleMinusField("ingredients", index)}
-                >
-                  -
-                </button>
               </div>
-              <textarea
-                className="form-control"
+              <input
+                className={`form-control ${styles.textArea}`}
                 name="ingredients"
                 type="text"
                 value={ingredient || ""}
                 onChange={(e) => handleInput(e, validateRealTimeField, index)}
               />
+              <button
+                className={styles.delButton}
+                type="button"
+                onClick={() => handleMinusField("ingredients", index)}
+              >
+                -
+              </button>
             </div>
             <div className={styles.error}>
               {formErrors.ingredients && formErrors.ingredients[index] && (
@@ -170,21 +170,21 @@ const AddRecipe = () => {
                 <label className={`form-label ${styles.label}`}>
                   Step {index + 1} :
                 </label>
-                <button
-                  className={styles.delButton}
-                  type="button"
-                  onClick={() => handleMinusField("steps", index)}
-                >
-                  -
-                </button>
               </div>
-              <textarea
-                className="form-control"
+              <input
+                className={`form-control ${styles.textArea}`}
                 name="steps"
                 type="text"
                 value={step || ""}
                 onChange={(e) => handleInput(e, validateRealTimeField, index)}
               />
+              <button
+                className={styles.delButton}
+                type="button"
+                onClick={() => handleMinusField("steps", index)}
+              >
+                -
+              </button>
             </div>
             <div className={styles.error}>
               {formErrors.steps && formErrors.steps[index] && (

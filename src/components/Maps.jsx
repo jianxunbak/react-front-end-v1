@@ -8,6 +8,8 @@ import styles from "./Maps.module.css";
 import { AddOrEditRecipeContext } from "../context/AddOrEditRecipeContext";
 import L from "leaflet"; // Import leaflet for custom icons
 import { useNavigate } from "react-router-dom";
+// import "react-leaflet-markercluster/dist/styles.min.css"; // For clustering styles
+import MarkerClusterGroup from "react-leaflet-markercluster";
 
 const Maps = () => {
   const { location } = useContext(MapsContext);
@@ -29,8 +31,20 @@ const Maps = () => {
       popupAnchor: [0, -50], // Adjust popup position
       className: "", // Remove the default Leaflet className to avoid default styling
     });
+
+  const createClusterCustomIcon = (cluster) => {
+    const count = cluster.getChildCount();
+
+    return L.divIcon({
+      html: `<div class="${styles.clusterIcon}">${count}</div>`, // Custom CSS class
+      className: "", // Remove default Leaflet styles
+      iconSize: [40, 40], // Adjust size
+    });
+  };
   return (
     <div className={styles.container}>
+      <h1 className={styles.mainTitle}>Recipes of the World </h1>
+
       <>
         {location.latitude && location.longitude ? (
           <MapContainer
@@ -45,44 +59,51 @@ const Maps = () => {
                 You are at {location.road}, {location.city}
               </Popup>
             </Marker>
-            {items.map((recipe) => {
-              return (
-                <Marker
-                  key={recipe.id}
-                  position={[recipe.latitude, recipe.longitude]}
-                  icon={customIcon(recipe.imgSrc)}
-                >
-                  <Popup>
-                    <div className={styles.markerDetails}>
-                      <div className={styles.imgContainer}>
-                        <img
-                          src={recipe.imgSrc}
-                          alt="image of recipe"
-                          className={styles.img}
-                        />
-                      </div>
-
-                      <div className={styles.textContainer}>
-                        <div className={styles.textInnerContainer}>
-                          <p className={styles.title}> {recipe.title}</p>
-                          <p className={styles.text}>{recipe.city}</p>
-                          <p className={styles.text}>{recipe.description}</p>
+            <MarkerClusterGroup
+              iconCreateFunction={createClusterCustomIcon}
+              maxClusterRadius={10}
+              spiderfyDistanceMultiplier={2} // Spread markers more when clicked
+              disableClusteringAtZoom={2} // Stops clustering when zoomed in past level 14
+            >
+              {items.map((recipe) => {
+                return (
+                  <Marker
+                    key={recipe.id}
+                    position={[recipe.latitude, recipe.longitude]}
+                    icon={customIcon(recipe.imgSrc)}
+                  >
+                    <Popup>
+                      <div className={styles.markerDetails}>
+                        <div className={styles.imgContainer}>
+                          <img
+                            src={recipe.imgSrc}
+                            alt="image of recipe"
+                            className={styles.img}
+                          />
                         </div>
-                        <button
-                          className={styles.button}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate(`/recipe/${recipe.id}`);
-                          }}
-                        >
-                          View
-                        </button>
+
+                        <div className={styles.textContainer}>
+                          <div className={styles.textInnerContainer}>
+                            <p className={styles.title}> {recipe.title}</p>
+                            <p className={styles.text}>{recipe.city}</p>
+                            <p className={styles.text}>{recipe.description}</p>
+                          </div>
+                          <button
+                            className={styles.button}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              navigate(`/recipe/${recipe.id}`);
+                            }}
+                          >
+                            View
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  </Popup>
-                </Marker>
-              );
-            })}
+                    </Popup>
+                  </Marker>
+                );
+              })}
+            </MarkerClusterGroup>
           </MapContainer>
         ) : (
           <div className={styles.loadingCenter}>

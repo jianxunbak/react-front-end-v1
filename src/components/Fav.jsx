@@ -68,7 +68,9 @@ const Fav = () => {
       </div>
 
       {isLoading ? (
-        <PacmanLoader />
+        <div className={styles.loadingCenter}>
+          <PacmanLoader />
+        </div>
       ) : (
         <div className="container mb-5 ">
           <div className="justify-content-center row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">

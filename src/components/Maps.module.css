@@ -80,3 +80,26 @@
     justify-content: center;
     align-items: center;
   }
+
+  .mainTitle{
+    text-align: center;
+    font-size: clamp(50px, 5vw, 80px);
+    width: 100%;
+    padding:0px 0px 30px 0px;
+    margin:0
+  }
+
+  .clusterIcon {
+    background-color: rgba(255, 87, 34, 0.8); /* Custom color */
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }

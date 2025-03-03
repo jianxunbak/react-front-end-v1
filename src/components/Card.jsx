@@ -56,7 +56,9 @@ export const Card = () => {
   return (
     <>
       {isLoading ? (
-        <PacmanLoader />
+        <div className={styles.loadingCenter}>
+          <PacmanLoader />
+        </div>
       ) : (
         <div className="container mb-5">
           {isLoggedIn && !searching ? (

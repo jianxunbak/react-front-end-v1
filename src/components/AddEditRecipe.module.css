@@ -31,6 +31,16 @@
     line-height: 25px;
     border: 0
 }
+
+.textArea{
+    width:100%;
+    height:50px;
+    background-color:#C0C0C0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    line-height: 25px;
+    border: 0
+}
 .main{
     display: flex;
     margin: 0 20px 10px 0;
@@ -76,8 +86,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width:50px;
-    border-radius: 15px;
+    width:30px;
+    height:50px;
+    border-radius: 0 5px 5px 0;
     font-size: 12px;
     border: white solid 1px;
     background-color: rgb(148, 57, 57);
