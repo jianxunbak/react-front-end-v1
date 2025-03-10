@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Recipe from "./components/Recipe";
 import Root from "./components/Root";
-import About from "./components/About";
 import Fav from "./components/Fav";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
@@ -16,10 +15,10 @@ import EditProfile from "./components/EditProfile";
 import EditPassword from "./components/EditPassword";
 import { RecipeValidationProvider } from "./context/RecipeValidationContext";
 import { ProfileValidationProvider } from "./context/ProfileValidationContext";
-import UserRecipes from "./components/userRecipes";
 import { UserAuthProvider } from "./context/UserAuthContext";
 import { useContext } from "react";
 import Maps from "./components/Maps";
+import UserRecipes from "./components/UserRecipes";
 
 function App() {
   const { setIsLoading } = useContext(IsEditingAndLoadingContext);
