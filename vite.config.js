@@ -12,4 +12,7 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
+  preview: {
+    allowedHosts: ["react-front-end-v1.onrender.com"],
+  },
 });
