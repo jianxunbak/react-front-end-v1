@@ -35,6 +35,9 @@ const Login = () => {
           <button className={styles.button} type="submit">
             Login
           </button>
+          <p>*HINT*</p>
+          <p>username: Stark</p>
+          <p>Password: password</p>
         </div>
       </form>
     </div>
