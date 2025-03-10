@@ -6,7 +6,7 @@ import {
   updateOneRecipe,
 } from "../api/RecipeEndPoints";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { getOneUserById } from "../api/userEndPoints";
+import { getOneUserById } from "../api/UserEndPoints";
 
 // Step 1: Create a context object
 export const AddOrEditRecipeContext = createContext();

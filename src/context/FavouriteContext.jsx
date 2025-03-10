@@ -4,7 +4,7 @@ import {
   deleteOneFavourite,
   getAllFavourites,
 } from "../api/FavouritesEndPoints";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 // Step 1: Create a context object
 export const FavouriteContext = createContext();
