@@ -1,4 +1,4 @@
-import Api from "./api";
+import Api from "./Api";
 
 // Authentication end points
 export const generateToken = (userDetails) => {

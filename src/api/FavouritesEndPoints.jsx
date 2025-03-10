@@ -1,4 +1,4 @@
-import Api from "./api";
+import Api from "./Api";
 
 // Favourites end points
 export const addFavourites = (userId, recipeId) => {

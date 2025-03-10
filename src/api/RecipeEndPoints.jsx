@@ -1,4 +1,4 @@
-import Api from "./api";
+import Api from "./Api";
 
 // Recipe end points
 export const addOneRecipe = (userId, newRecipe) => {

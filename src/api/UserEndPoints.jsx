@@ -1,4 +1,4 @@
-import Api from "./api";
+import Api from "./Api";
 
 // User end points
 export const addNewUser = (user) => {
