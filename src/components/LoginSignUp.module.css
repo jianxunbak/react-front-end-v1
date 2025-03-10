@@ -46,3 +46,9 @@
     background-color: black;
     color: white;
 }
+
+.hint{
+color: grey;
+font-size: small;
+margin: 0 ;
+}

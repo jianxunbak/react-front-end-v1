@@ -35,9 +35,11 @@ const Login = () => {
           <button className={styles.button} type="submit">
             Login
           </button>
-          <p>*HINT*</p>
-          <p>username: Stark</p>
-          <p>Password: password</p>
+        </div>
+        <div>
+          <p className={styles.hint}>*HINT*</p>
+          <p className={styles.hint}>username: Stark</p>
+          <p className={styles.hint}>Password: password</p>
         </div>
       </form>
     </div>
