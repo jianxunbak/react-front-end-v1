@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { generateToken, validateToken } from "../api/AuthEndPoints";
-import { addNewUser, getOneUserById } from "../api/userEndPoints";
+import { addNewUser, getOneUserById } from "../api/UserEndPoints";
 
 export const UserAuthContext = createContext();
 
