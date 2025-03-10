@@ -5,6 +5,6 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: import.meta.env.VITE_PORT || 3000, // Fallback to 3000 for local development
+    port: parseInt(import.meta.env.VITE_PORT) || 3000, // Fallback to 3000 for local development
   },
 });
