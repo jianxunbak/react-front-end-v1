@@ -4,7 +4,7 @@ import {
   deleteUser,
   updateUserDetails,
   updateUserPassword,
-} from "../api/userEndPoints";
+} from "../api/UserEndPoints";
 
 export const ProfileContext = createContext();
 
